@@ -8,18 +8,18 @@
 </head>
 <body>
     <div class="nav-conteiner">
-        <h2>BATTALION FORCE MANAGEMENT</h2>
-        <h2 class="hidden">Edit Personal</h2>
+        <h2 id="h21">BATTALION FORCE MANAGEMENT</h2>
+        <h2 id="h22" class="hidden">Edit Personal</h2>
     </div>
     <div class="home-conteiner">
         <div class="add-personal">
             <form class="new-personal">
-                <input type="text" class="form-info" placeholder="Full Name">
-                <input type="text" class="form-info"  placeholder="Rank">
-                <input type="text" class="form-info"  placeholder="Position">
-                <input type="text" class="form-info"  placeholder="Platoon">
-                <input type="text" class="form-info"  placeholder="Misson Time (seconds)">
-                <select name="status" id="statuts" class="form-info">
+                <input type="text" class="form-info" placeholder="Full Name" id="Full-Name">
+                <input type="text" class="form-info"  placeholder="Rank" id="Rank">
+                <input type="text" class="form-info"  placeholder="Position" id="Position">
+                <input type="text" class="form-info"  placeholder="Platoon" id="Platoon">
+                <input type="number" class="form-info"  placeholder="Misson Time (seconds)" id="mission-time">
+                <select name="status" id="status" class="form-info">
                     <option value="Active">Active</option>
                     <option value="Reserve">Reserve</option>
                     <option value="Retired">Retired</option>
@@ -29,7 +29,7 @@
         </div>
         <div class="force-Overview">
             <h3>FORCE OVERVIEW</h3>
-            <table class="table">
+            <table>
                 <tr id="header-table">
                     <th>Full Name</th>
                     <th>RANK</th>
@@ -41,5 +41,27 @@
             </table>
         </div>
     </div>
+
+    <div class="edit-page hidden">
+        <div class="edit-personal"></div>
+            <form class="new-personal">
+                <input type="text" class="form-info" placeholder="Full Name" id="Full-Name">
+                <input type="text" class="form-info"  placeholder="Rank" id="Rank">
+                <input type="text" class="form-info"  placeholder="Position" id="Position">
+                <input type="text" class="form-info"  placeholder="Platoon" id="Platoon">
+                <input type="number" class="form-info"  placeholder="Misson Time (seconds)" id="mission-time">
+                <select name="status" id="status" class="form-info">
+                    <option value="Active">Active</option>
+                    <option value="Reserve">Reserve</option>
+                    <option value="Retired">Retired</option>
+                </select>
+                <input type="submit" value="Add Personal" id="submit">
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="main.js"></script>
 </body>
 </html>
