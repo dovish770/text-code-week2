@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FORCE MANAGEMENT</title>
+</head>
+<body>
+    <div class="nav-conteiner">
+        <h2>BATTALION FORCE MANAGEMENT</h2>
+        <h2 class="hidden">Edit Personal</h2>
+    </div>
+    <div class="home-conteiner">
+        <div class="add-personal">
+            <form class="new-personal">
+                <input type="text" class="form-info" placeholder="Full Name">
+                <input type="text" class="form-info"  placeholder="Rank">
+                <input type="text" class="form-info"  placeholder="Position">
+                <input type="text" class="form-info"  placeholder="Platoon">
+                <input type="text" class="form-info"  placeholder="Misson Time (seconds)">
+                <select name="status" id="statuts" class="form-info">
+                    <option value="Active">Active</option>
+                    <option value="Reserve">Reserve</option>
+                    <option value="Retired">Retired</option>
+                </select>
+                <input type="submit" value="Add Personal" id="submit">
+            </form>
+        </div>
+        <div class="force-Overview">
+            <h3>FORCE OVERVIEW</h3>
+            <table class="table">
+                <tr id="header-table">
+                    <th>Full Name</th>
+                    <th>RANK</th>
+                    <th>POSITION</th>
+                    <th>PLATOON</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+    *{
+        font-family: Arial;
+        color: rgb(50, 156, 50);
+    
+    }
+
+    
+
+    body{
+        background-color: rgb(10, 60, 80);
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+    }
+
+    .nav-conteiner{
+        display: flex;
+        flex-direction: row;
+        height: 25px;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 2px solid rgb(50, 156, 50);
+        width: 100%;
+        margin-bottom:10px;
+    }
+    h2{
+        font-size: medium;
+    }
+
+    .add-personal{
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .new-personal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(11, 70, 94);
+        width: auto;
+        height: auto;
+        padding: 25px 18px;
+        border-radius: 4px;
+        box-shadow: 3px 3px rgb(10, 46, 61);
+    }
+
+    .form-info{
+        color: rgb(107, 106, 106);
+        background-color:rgb(8, 46, 61); 
+        padding: 8px;
+        font-size: 10px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        width: 650px;
+        border: none;
+        border-radius: 3px;
+        margin-bottom: 8px;
+    }
+
+    #submit{
+        color: rgb(231, 231, 231);
+        background-color: rgb(50, 156, 50);
+        font-size: 10px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        border: none;
+        border-radius: 4px;
+        width: 100%;
+        height: 20px;
+    }
+
+    .force-Overview{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h3{
+        font-size: 16px;
+        border-bottom: 2px solid rgb(50, 156, 50);
+        width: 100%;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 5px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th{
+        border: 1px solid rgb(190, 196, 202);
+        background-color: rgb(240, 246, 252);
+        padding: 10px;
+        text-align: center;
+        font-size: 13PX;
+    }
+    td{
+        border: 1px solid rgb(190, 196, 202);
+        color: rgb(240, 246, 252);
+        font-size: 13px;
+        padding: 10px;
+        padding-right: 25px;
+    
+    }
+
+    .hidden{
+        display: none;
+    }
