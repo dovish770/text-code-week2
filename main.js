@@ -11,9 +11,18 @@ let position = document.querySelector(`#Position`);
 let platoon = document.querySelector(`#Platoon`);
 let missionTime = document.querySelector(`#mission-time`);
 let status = document.querySelector('#status');
-let countMission = 0
-let h21 = document.querySelector(`#h21`)
-let h22 = document.querySelector(`#h22`)
+let EfullName = document.querySelector(`#EFull-Name`);
+let Erank = document.querySelector(`#ERank`);
+let Eposition = document.querySelector(`#EPosition`);
+let Eplatoon = document.querySelector(`#EPlatoon`);
+let EmissionTime = document.querySelector(`#Emission-time`);
+let Estatus = document.querySelector('#Estatus');
+let countMission = 0;
+let h21 = document.querySelector(`#h21`);
+let h22 = document.querySelector(`#h22`);
+let cancelEditing = document.querySelector(`#cancel`);
+let saveChanges = document.querySelector(`#save-changes`);
+let personInEdit;
 
 
 function submitPersonal(event){
@@ -27,7 +36,7 @@ function submitPersonal(event){
 }
 
 function validateInputs() {
-    return fullName.value && rank.value && position.value && platoon.value && missionTime.value && status.value;
+    return fullName.value && rank.value && position.value && platoon.value && missionTime.value
 }
 
 function createPersonal(){
@@ -96,7 +105,7 @@ function createActions(person){
     const btnEdit = document.createElement(`button`);
     btnEdit.classList.add(`action-btn`)
     btnEdit.innerHTML = `Edit`
-    btnEdit.addEventListener(`click`, ()=>EditPerson(person));
+    btnEdit.addEventListener(`click`, ()=> EditPerson(person));
 
     const td = document.createElement(`td`);
     td.classList.add(`actionBtns`)
@@ -111,7 +120,7 @@ function RemovePerson(person){
 }
 
 function StartMission(seconds, btnMission){
-    btnMission.disabled = false
+    btnMission.disabled = true
     let num = seconds
     countMission = setInterval(()=>{timerForMission(num, btnMission), num--}, 1000)
     btnMission.disabled = false
@@ -128,12 +137,71 @@ function timerForMission(numOfSeconds, btnMission){
 }
 
 function EditPerson(person){
+    activateToggle()
+    showDetails(person)
+}
+
+function showDetails(person){
+    EfullName.value = person.fullName;
+    Erank.value = person.rank;
+    Eposition.value = person.position;
+    Eplatoon.value = person.platoon;
+    EmissionTime.value = person.missionTime;
+    personInEdit = person;
+}
+
+
+
+function activateToggle(){
     h21.classList.toggle(`hidden`)
     h22.classList.toggle(`hidden`)
     homeConteiner.classList.toggle(`hidden`)
     editPage.classList.toggle(`hidden`)
 }
 
-renderPage(personalList)
+function beckToHomePage(){
+    activateToggle()
+}
 
+function saveEditing(event){
+    event.preventDefault();
+    if (validateInputs()) {
+        let newPerson = editedPerson();
+        debugger    
+        let tempPerson = personalList.find(p => p == personInEdit);
+        if (idx !== -1) {
+            tempPerson = newPerson;
+            localStorage.setItem('personalList', JSON.stringify(personalList));
+            renderPage(personalList);
+            beckToHomePage();
+        }
+        localStorage.setItem('personalList', JSON.stringify(personalList));
+    }
+}
+
+
+function editedPerson(){
+    let personal = {
+        fullName: EfullName.value,
+        rank: Erank.value,
+        position: Eposition.value,
+        platoon: Eplatoon.value,
+        missionTime: EmissionTime.value,
+        status: Estatus.value
+    };
+
+    EfullName.value = "";
+    Erank.value = "";
+    Eposition.value = "";
+    Eplatoon.value = "";
+    EmissionTime.value = "";
+    
+    return personal
+}
+
+
+
+renderPage(personalList)
+cancelEditing.addEventListener(`submit`, beckToHomePage)
 submit.addEventListener('submit', submitPersonal);
+saveChanges.addEventListener(`submit`, (e)=>saveEditing(e))
